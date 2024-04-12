@@ -1,6 +1,7 @@
 package br.com.zubokoff.loans.controller.dto;
 
 import br.com.zubokoff.loans.domain.Customer;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
@@ -11,6 +12,7 @@ public record RequestDto(@NotNull(message = "Por favor, informar a idade")
                          @NotNull(message = "Por favor, informe o nome")
                          String name,
                          @NotNull(message = "Por favor, informe o salário")
+                         @DecimalMin(value = "1", message = "Por favor, informe um valor válido para o salario")
                          Double income,
                          @NotNull(message = "Por favor, informe a localização")
                          String location) {
