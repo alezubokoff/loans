@@ -24,11 +24,8 @@ public class CustomerService {
     }
 
     private void validPersonalLoan(Customer customer, List<Loan> loanList) {
-        if (customer.isIncomeEqualOrLower(3000.0)) {
-            loanList.add(new Loan(LoanType.PERSONAL, 4));
-        }
-
-        if(customer.isIncomeBetween(3000.0, 5000.0) && customer.isAgeLower(30) && customer.isLocation("SP")) {
+        if(customer.isIncomeEqualOrLower(3000.0) || 
+        (customer.isIncomeBetween(3000.0, 5000.0) && customer.isAgeLower(30) && customer.isLocation("SP"))) {
             loanList.add(new Loan(LoanType.PERSONAL, 4));
         }
     }
@@ -40,11 +37,8 @@ public class CustomerService {
     }
 
     private void validGuaranteed(Customer customer, List<Loan> loanList) {
-        if (customer.isIncomeEqualOrLower(3000.0)) {
-            loanList.add(new Loan(LoanType.GUARANTEED, 3));
-        }
-
-        if(customer.isIncomeBetween(3000.0, 5000.0) && customer.isAgeLower(30) && customer.isLocation("SP")) {
+        if(customer.isIncomeEqualOrLower(3000.0) || 
+        (customer.isIncomeBetween(3000.0, 5000.0) && customer.isAgeLower(30) && customer.isLocation("SP"))) {
             loanList.add(new Loan(LoanType.GUARANTEED, 3));
         }
     }
